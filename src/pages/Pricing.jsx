@@ -1,9 +1,11 @@
 // Uses the same styles as Product
+import NavPage from "../components/NavPage";
 import styles from "./Product.module.css";
 
 export default function Product() {
   return (
     <main className={styles.product}>
+      <NavPage />
       <section>
         <div>
           <h2>
