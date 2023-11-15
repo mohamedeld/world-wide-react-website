@@ -1,10 +1,11 @@
-import CityItem from "./CityItem";
 import Spinner from "./Spinner";
 import Error from "./Error";
 import styles from "./CountryList.module.css";
+import { useCities } from "../contexts/CitiesContext";
 import Message from "./Message";
 import CountryItem from "./CountryItem";
-export default function CountriesList({ cities, isLoading, error }) {
+export default function CountriesList() {
+  const { cities, isLoading, error } = useCities();
   if (isLoading) return <Spinner />;
   if (error) return <Error error={error} />;
   if (!cities.length)
@@ -19,7 +20,7 @@ export default function CountriesList({ cities, isLoading, error }) {
   return (
     <ul className={styles.countriesList}>
       {countries.map((country) => {
-        return <CountryItem key={country.id} country={country} />;
+        return <CountryItem key={country.country} country={country} />;
       })}
     </ul>
   );
